@@ -1,0 +1,28 @@
+ID: btpcon-cf
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: approuter
+    type: nodejs
+    path: html5
+    # requires:
+    #   - name: html5-destination
+    #   - name: html5-uaa
+# resources:
+#   - name: html5-destination
+#     type: org.cloudfoundry.managed-service
+#     parameters:
+#       service-plan: lite
+#       service: destination
+#       path: ./destinations.json
+#   - name: html5-uaa
+#     type: org.cloudfoundry.managed-service
+#     parameters:
+#       service: xsuaa
+#       service-plan: application
+#       config:
+#         xsappname: "ui5-approuter-uaa"
+#         tenant-mode: dedicated
