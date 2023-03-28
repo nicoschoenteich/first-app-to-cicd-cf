@@ -1,0 +1,52 @@
+[
+    {
+        "kind": 1,
+        "language": "markdown",
+        "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    #banner-wrapper {\n      background: url(https://www.btpcon.org/wp-content/themes/exhibz/assets/images/banner/about-banner.jpg);\n      height: 200px;\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      padding: 1rem;\n    }\n    #banner-title {\n      font-size: 48px;\n      font-weight: 800;\n      color: #fff;\n    }\n    #banner-image {\n      height: 75%;\n      margin-bottom: 1rem;\n      margin-right: 2rem;\n    }\n  </style>\n</head>\n<body>\n\n  <div id=\"banner-wrapper\">\n    <span id=\"banner-title\">BTPcon 2023</span>\n    <img id=\"banner-image\" src=\"https://www.cloudfoundry.org/wp-content/uploads/2017/01/CloudFoundaryCorp_vertical_white.png\" />\n  </div>\n\n</body>\n</html>",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n.alert {\n  padding: 20px;\n  color: var(--theme-error-foreground);\n  background-color: var(--theme-error-background);\n  max-width: 70em;\n  width: 95%;\n}\n.alert.info {\n  color: var(--theme-info-foreground);\n  background-color: var(--theme-info-background);\n}\n.alert.warning {\n  color: var(--theme-warning-foreground);\n  background-color: var(--theme-warning-background);\n}\n.closebtn {\n  margin-left: 15px;\n  color: white;\n  font-weight: bold;\n  float: right;\n  font-size: 22px;\n  line-height: 20px;\n  cursor: pointer;\n  transition: 0.3s;\n}\n.closebtn:hover {\n  color: black;\n}\n</style>\n</head>\n<h1 style=\"font-size:50px\">CAP Notebook&emsp;<img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/sap.svg\" alt=\"drawing\" width=\"70\"/><img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/cap.svg\" alt=\"drawing\" width=\"60\"/></h1>\n<body>\n<div class=\"alert info\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>\n  <strong>Info:</strong> Notebook code cells work just like your native environments. However, predefined *Magic commands* exist\n  to make notebook workflows even simpler.\n  They all start with <code>%</code> or <code>%%</code> for line or cell magic commands. Type <code>%quickref</code> in any cell for a full list.\n</div>\n<p>\n<div class=\"alert\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>\n  <strong>Attention:</strong> The cell types <i>Shell Script</i> and <i>Terminal</i> are executed in your native shell environment. Check the code <b>before</b> running the cell.\n</div>\n<p>\n</body>\n</html>"
+            }
+        ]
+    },
+    {
+        "kind": 1,
+        "language": "markdown",
+        "value": "# Vom ersten App-Deployment zu CI/CD mit Cloud Foundry\n\n*Wie funktioniert Cloud Foundry eigentlich wirklich? In diesem Vortrag erkunden wir die Struktur von Apps und Services auf der SAP BTP, Cloud Foundry environment und lernen dabei, wie diese administriert werden können. Wir starten mit dem einfachen Deployment einer App, um dann Schritt für Schritt die Komplexität zu erhöhen und schlussendlich eine CI/CD Pipeline zu aufzusetzen. Geeignet für Entwickler/innen und technisch Interessierte.*",
+        "outputs": []
+    },
+    {
+        "kind": 2,
+        "language": "terminal",
+        "value": "cf login",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Running in terminal <b>presentation.capnb - /Users/i533499/github/nicoschoenteich/btpcon-cf2</b>"
+            }
+        ]
+    },
+    {
+        "kind": 2,
+        "language": "terminal",
+        "value": "%%writefile \"Staticfile\"",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"Staticfile\">Staticfile</a>.\n"
+            }
+        ]
+    },
+    {
+        "kind": 2,
+        "language": "terminal",
+        "value": "%%writefile \"index.html\"\nHello BTPcon!",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"index.html\">index.html</a>.\n"
+            }
+        ]
+    }
+]

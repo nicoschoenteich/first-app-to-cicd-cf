@@ -1,0 +1,109 @@
+[
+    {
+        "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n.alert {\n  padding: 20px;\n  color: var(--theme-error-foreground);\n  background-color: var(--theme-error-background);\n  max-width: 70em;\n  width: 95%;\n}\n.alert.info {\n  color: var(--theme-info-foreground);\n  background-color: var(--theme-info-background);\n}\n.alert.warning {\n  color: var(--theme-warning-foreground);\n  background-color: var(--theme-warning-background);\n}\n.closebtn {\n  margin-left: 15px;\n  color: white;\n  font-weight: bold;\n  float: right;\n  font-size: 22px;\n  line-height: 20px;\n  cursor: pointer;\n  transition: 0.3s;\n}\n.closebtn:hover {\n  color: black;\n}\n</style>\n</head>\n<h1 style=\"font-size:50px\">CAP Notebook&emsp;<img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/sap.svg\" alt=\"drawing\" width=\"70\"/><img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/cap.svg\" alt=\"drawing\" width=\"60\"/></h1>\n<body>\n<div class=\"alert info\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display=\"none\";\">&times;</span>\n  <strong>Info:</strong> Notebook code cells work just like your native environments. However, predefined *Magic commands* exist to succinctly solve various common problems to make notebook workflows even simpler. They all start with <code>%</code> or <code>%%</code> for line or cell magic commands.<br> Type <code>%quickref</code> in any cell for a full list.\n</div>\n<p>\n<div class=\"alert\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display=\"none\";\">&times;</span>\n  <strong>Attention:</strong> The cell types <i>Shell Script</i> and <i>Terminal</i> are executed in your native shell environment. Check the code <b>before</b> running the cell.\n</div>\n<p>\n</body>\n</html>\n",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": [
+            {
+                "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n.alert {\n  padding: 20px;\n  color: var(--theme-error-foreground);\n  background-color: var(--theme-error-background);\n  max-width: 70em;\n  width: 95%;\n}\n.alert.info {\n  color: var(--theme-info-foreground);\n  background-color: var(--theme-info-background);\n}\n.alert.warning {\n  color: var(--theme-warning-foreground);\n  background-color: var(--theme-warning-background);\n}\n.closebtn {\n  margin-left: 15px;\n  color: white;\n  font-weight: bold;\n  float: right;\n  font-size: 22px;\n  line-height: 20px;\n  cursor: pointer;\n  transition: 0.3s;\n}\n.closebtn:hover {\n  color: black;\n}\n</style>\n</head>\n<h1 style=\"font-size:50px\">CAP Notebook&emsp;<img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/sap.svg\" alt=\"drawing\" width=\"70\"/><img style=\"vertical-align:middle\" src=\"https://cap.cloud.sap/docs/assets/logos/cap.svg\" alt=\"drawing\" width=\"60\"/></h1>\n<body>\n<div class=\"alert info\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display=\"none\";\">&times;</span>\n  <strong>Info:</strong> Notebook code cells work just like your native environments. However, predefined *Magic commands* exist to succinctly solve various common problems to make notebook workflows even simpler. They all start with <code>%</code> or <code>%%</code> for line or cell magic commands.<br> Type <code>%quickref</code> in any cell for a full list.\n</div>\n<p>\n<div class=\"alert\">\n  <span class=\"closebtn\" onclick=\"this.parentElement.style.display=\"none\";\">&times;</span>\n  <strong>Attention:</strong> The cell types <i>Shell Script</i> and <i>Terminal</i> are executed in your native shell environment. Check the code <b>before</b> running the cell.\n</div>\n<p>\n</body>\n</html>\n",
+                "mime": "text/html"
+            }
+        ]
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<h1 id=\"getting-started-in-a-nutshell\">Getting Started in a Nutshell</h1>\n<p class=\"subtitle\">Using a minimalistic setup</p>\n<p>Get started in a minimalistic setup with <em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://nodejs.org\">Node.js</a></em>, <em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://expressjs.com\">express</a></em> and <em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://sqlite.org\">SQLite</a></em>.<br></br>\n<br></br></p>\n<h2 id=\"start-a-project\">Jumpstarting Projects</h2>\n<p><a href=\"https://cap.cloud.sap/docs/get-started/#local-setup\">After installing <code class=\"language-plaintext highlighter-rouge\">@sap/cds-dk</code> globally</a>, create a project with minimal defaults as follows:</p></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "cds init bookshop",
+        "kind": 2,
+        "language": "shell",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<h3 id=\"go-to-the-bookshop-folder\">Go to the <em>bookshop</em> folder</h3>\n<p>In the following, we assume that you’re in the <em>bookshop</em> folder unless told otherwise.</p></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "cd bookshop",
+        "kind": 2,
+        "language": "shell",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<h3 id=\"run\">Launch <code class=\"language-plaintext highlighter-rouge\">cds watch</code></h3>\n<p>For an automated jumpstart, you can just tell <code class=\"language-plaintext highlighter-rouge\">cds</code> to watch out for things to arrive:</p></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "cds watch",
+        "kind": 2,
+        "language": "terminal",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<p>Use <code class=\"language-plaintext highlighter-rouge\">cds watch</code> to start a cds server, even in a newly created and yet empty project. Whenever you feed your project with new content, for example, by adding or modifying <em>.cds</em>, <em>.json</em>, or <em>.js</em> files, the server automatically restarts to serve the new content. Because there isn’t any content in your project yet, it just keeps waiting with a message like this:</p>\n<pre class=\"log\">\n<span style=\"color:#fc0\">[cds] - running nodemon...\n--ext cds,csn,csv,ts,mjs,cjs,js,json,properties,edmx,xml\n</span>\n    No models found at db/,srv/,app/,schema,services,.\n    Waiting for some to arrive...\n</pre>\n<h2 id=\"domain-models\">Defining Domain Models</h2>\n<p>Let’s feed our project by adding a simple domain model. Start by creating a file named <em>db/schema.cds</em> (also indicated in the code box’s label) and copy the following definitions into it:</p></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "%%writefile \"db/schema.cds\"\nusing { Currency, managed, sap } from '@sap/cds/common';\nnamespace sap.capire.bookshop;\n\nentity Books : managed {\n  key ID : Integer;\n  title  : localized String(111);\n  descr  : localized String(1111);\n  author : Association to Authors;\n  genre  : Association to Genres;\n  stock  : Integer;\n  price  : Decimal(9,2);\n  currency : Currency;\n}\n\nentity Authors : managed {\n  key ID : Integer;\n  name   : String(111);\n  books  : Association to many Books on books.author = $self;\n}\n\n/** Hierarchically organized Code List for Genres */\nentity Genres : sap.common.CodeList {\n  key ID   : Integer;\n  parent   : Association to Genres;\n  children : Composition of many Genres on children.parent = $self;\n}",
+        "kind": 2,
+        "language": "cds",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<p><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://github.com/sap-samples/cloud-cap-samples/tree/main/bookshop/db/schema.cds\"class=\"learn-more\">Find this source also in <strong>cap/samples</strong>.</a>\n<a href=\"https://cap.cloud.sap/docs/guides/domain-models\"class=\"learn-more\">Learn more about <strong>Domain Modeling</strong>.</a>\n<a href=\"https://cap.cloud.sap/docs/cds\"class=\"learn-more\">Learn more about <strong>CDS Modeling Languages</strong>.</a></p>\n<h3 id=\"deployed-in-memory\">Deployed to Databases Automatically</h3>\n<p>As soon as you save your file, the still running <code class=\"language-plaintext highlighter-rouge\">cds watch</code> reacts immediately with new output like this:</p>\n<pre class=\"log\">\n[cds] - connect to db { database: <em>':memory:'</em> }\n/> successfully deployed to sqlite in-memory db\n</pre>\n<p>This means that <code class=\"language-plaintext highlighter-rouge\">cds watch</code> detected the changes in <em>db/schema.cds</em> and automatically bootstrapped an in-memory <em>SQLite</em> database when restarting the server process.</p>\n<p><a href=\"#databases\"class=\"learn-more\">Learn more about using databases.</a></p>\n</p>\n<h2 id=\"defining-services\">Defining Services</h2>\n<p>After the recent changes, <code class=\"language-plaintext highlighter-rouge\">cds watch</code> also prints this message:</p>\n<pre class=\"log\">\n    No service definitions found in loaded models.\n    Waiting for some to be added...\n</pre>\n<p>So, let’s go on feeding it with service definitions.\nFollowing the <a href=\"https://cap.cloud.sap/docs/guides/providing-services#single-purposed-services\">best practice of single-purposed services</a>, we’ll define two services for different use cases.</p>\n<h3 id=\"one-for-admins-to-maintain-books-and-authors\">One for Admins to Maintain <em>Books</em> and <em>Authors</em></h3></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "%%writefile \"srv/admin-service.cds\"\nusing { sap.capire.bookshop as my } from '../db/schema';\nservice AdminService @(requires:'authenticated-user') {\n  entity Books as projection on my.Books;\n  entity Authors as projection on my.Authors;\n}",
+        "kind": 2,
+        "language": "cds",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<p><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://github.com/sap-samples/cloud-cap-samples/tree/main/bookshop/srv/admin-service.cds\"class=\"learn-more\">Find this source also in <strong>cap/samples</strong>.</a></p>\n<h3 id=\"cat-service\">And One for End Users to Browse and Order <em>Books</em></h3></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "%%writefile \"srv/cat-service.cds\"\nusing { sap.capire.bookshop as my } from '../db/schema';\nservice CatalogService @(path:'/browse') {\n\n  @readonly entity Books as SELECT from my.Books {*,\n    author.name as author\n  } excluding { createdBy, modifiedBy };\n\n  @requires: 'authenticated-user'\n  action submitOrder (book: Books:ID, quantity: Integer);\n}",
+        "kind": 2,
+        "language": "cds",
+        "outputs": []
+    },
+    {
+        "value": "<div id=\"content\">\n<style>\n#content {\n display: block;\n max-width: var(--notebook-output-width);\n font: var(--theme-font-size) var(--theme-font-family);\n font-weight: var(--theme-font-size);\n}\n.log {\n background-color: var(--vscode-notebook-cellEditorBackground);\n}\n.ol-item-indent {\n margin-left: 40px;\n}\n</style>\n<p><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://github.com/sap-samples/cloud-cap-samples/tree/main/bookshop/srv/cat-service.cds\"class=\"learn-more\">Find this source also in <strong>cap/samples</strong>.</a>\n<a href=\"https://cap.cloud.sap/docs/guides/providing-services\"class=\"learn-more\">Learn more about <strong>Defining Services</strong>.</a></p>\n<h3 id=\"served-to-odata-out-of-the-box\">Served to OData out-of-the-box</h3>\n<p>This time <code class=\"language-plaintext highlighter-rouge\">cds watch</code> reacted with additional output like this:</p>\n<pre class=\"log\">\n[cds] - serving AdminService { at: <em>'/admin'</em> }\n[cds] - serving CatalogService { at: <em>'/browse'</em>, impl: <em>'bookshop/srv/cat-service.js'</em> }\n[cds] - launched in: 744.291ms\n[cds] - server listening on { url: <em>'http://localhost:4004'</em> }\n</pre>\n<p>As you can see in the log output, the two service definitions have been compiled and generic service providers have been constructed to serve requests on the listed endpoints <em>/admin</em> and <em>/browse</em>.</p>\n<p>Open <em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://localhost:4004\">http://localhost:4004</a></em> in your browser and see the generic <em>index.html</em> page: \n<br><br><img src=\"https://cap.cloud.sap/docs/02-Getting-Started/assets/nutshell/welcome.png\"alt=\"Generic welcome page generated by CAP that list all endpoints. Eases jumpstarting development and is not meant for productive use.\"style=\"width:450px; box-shadow: 1px 1px 5px #888888; display:block; margin-left:auto; margin-right:auto;\"></img></p>\n<blockquote>\n  <p>User <code class=\"language-plaintext highlighter-rouge\">alice</code> is a <a href=\"https://cap.cloud.sap/docs/node.js/authentication#mocked\">default user with admin privileges</a>. Use it to access the <code class=\"language-plaintext highlighter-rouge\">admin</code> service. You don’t need to enter a password.</p>\n</blockquote>\n</p>\n<h2 id=\"databases\">Using Databases</h2>\n<h3 id=\"using-sqlite-in-memory-database\">Using <em>sqlite</em> In-Memory Database</h3>\n<p>As <a href=\"#deployed-in-memory\">previously shown</a>, <code class=\"language-plaintext highlighter-rouge\">cds watch</code> automatically bootstraps an SQLite in-process and in-memory database by default — that is, unless told otherwise. While this <strong>isn’t meant for productive use</strong>, it drastically speeds up development turn-around times, essentially by mocking your target database, for example, SAP HANA.</p>\n<p><a href=\"https://cap.cloud.sap/docs/get-started/grow-as-you-go\"class=\"learn-more\">Learn more about mocking options in <strong>Grow as you go</strong>.</a></p>\n<h3 id=\"adding-initial-data-in-csv-files\">Adding Initial Data in <code class=\"language-plaintext highlighter-rouge\">.csv</code> Files</h3>\n<p>Now, let’s fill your database with initial data by adding a few plain CSV files under <em>db/data</em> like this:</p></div>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    },
+    {
+        "value": "%%writefile \"db/data/sap.capire.bookshop-Books.csv\"\nID;title;author_ID;stock\n201;Wuthering Heights;101;12\n207;Jane Eyre;107;11\n251;The Raven;150;333\n252;Eleonora;150;555\n271;Catweazle;170;22",
+        "kind": 2,
+        "language": "csv (semicolon)",
+        "outputs": []
+    },
+    {
+        "value": "%%writefile \"db/data/sap.capire.bookshop-Authors.csv\"\nID;name\n101;Emily Brontë\n107;Charlotte Brontë\n150;Edgar Allen Poe\n170;Richard Carpenter",
+        "kind": 2,
+        "language": "csv (semicolon)",
+        "outputs": []
+    },
+    {
+        "value": "<p><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://github.com/sap-samples/cloud-cap-samples/tree/main/bookshop/db/data\"class=\"learn-more\">Find a full set of <code class=\"language-plaintext highlighter-rouge\">.csv</code> files in <strong>cap/samples</strong>.</a></p>\n<p>After you’ve added these files, <code class=\"language-plaintext highlighter-rouge\">cds watch</code> restarts the server with output, telling us that the files have been detected and their content been loaded into the database automatically:</p>\n<pre class=\"log\">\n[cds] - connect to db { database: <em>':memory:'</em> }\n > filling sap.capire.bookshop.Authors from bookshop/db/data/sap.capire.bookshop-Authors.csv\n > filling sap.capire.bookshop.Books from bookshop/db/data/sap.capire.bookshop-Books.csv\n/> successfully deployed to sqlite in-memory db\n</pre>\n<blockquote>\n  <p>This is the output when you’re using the <a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"https://github.com/sap-samples/cloud-cap-samples\">samples</a>. It’s less if you’ve followed the manual steps here.</p>\n</blockquote>\n<p><a href=\"https://cap.cloud.sap/docs/guides/databases\"class=\"learn-more\">Learn more about <strong>Using Databases</strong>.</a></p>\n<h3 id=\"querying-through-odata-out-of-the-box\">Querying Through OData out-of-the-box</h3>\n<p>Now that we’ve a connected, fully capable SQL database, filled with some initial data, we can send complex OData queries, served by the built-in generic providers:</p>\n<ul>\n  <li><em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://localhost:4004/browse/Books?$select=ID,title\">browse/Books?$select=ID,title</a></em></li>\n  <li><em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://localhost:4004/admin/Authors?$search=Bro\">admin/Authors?$search=Bro</a></em></li>\n  <li><em><a rel=\"nofollow noopener noreferrer\"target=\"_blank\"href=\"http://localhost:4004/admin/Authors?$expand=books($select=ID,title)\">admin/Authors?$expand=books($select=ID,title)</a></em></li>\n</ul>\n<blockquote>\n  <p>Use <a href=\"https://cap.cloud.sap/docs/node.js/authentication#mocked\"><em>Alice</em></a> as user to query the <code class=\"language-plaintext highlighter-rouge\">admin</code> service. You don’t need to enter a password.</p>\n</blockquote>\n<p><a href=\"https://cap.cloud.sap/docs/guides/providing-services\"class=\"learn-more\">Learn more about <strong>Generic Providers</strong>.</a>\n<a href=\"https://cap.cloud.sap/docs/advanced/odata\"class=\"learn-more\">Learn more about <strong>OData’s Query Options</strong>.</a></p>\n</p>\n<h2 id=\"summary-and-next-steps\">Summary and Next Steps</h2>\n<p>With this getting started guide we introduced many of the basics of CAP, such as:</p>\n<ul>\n  <li><a href=\"grow-as-you-go\">Jump-Starting Projects and Grow-as-you-go</a> </li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/domain-models\">Domain Modeling</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/providing-services\">Defining Services and APIs</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/providing-services\">Providing Services</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/providing-services\">Consuming Services</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/databases\">Using Databases</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//advanced/fiori\">Adding/Serving UIs</a></li>\n  <li><a href=\"https://cap.cloud.sap/docs//guides/providing-services#adding-custom-logic\">Adding Custom Logic</a></li>\n</ul>\n<p><a href=\"https://cap.cloud.sap/docs//guides/\"><strong>Visit our Cookbook</strong></a> to find more task-oriented guides. For example, you can find guides about potential next steps such as adding <a href=\"https://cap.cloud.sap/docs/node.js/authentication\">Authentication</a> and <a href=\"https://cap.cloud.sap/docs/guides/authorization\">Authorization</a> or <a href=\"https://cap.cloud.sap/docs/guides/deployment\">Deploying to SAP BTP, Cloud Foundry environment</a>.</p>\n<p>Also <strong>see the reference sections</strong> to find detailed documentation about <a href=\"https://cap.cloud.sap/docs/cds\"><strong>CDS</strong></a>, as well as <a href=\"https://cap.cloud.sap/docs/node.js\"><strong>Node.js</strong></a> and <a href=\"https://cap.cloud.sap/docs/java\"><strong>Java</strong></a> Service SDKs and runtimes.</p>",
+        "kind": 1,
+        "language": "markdown",
+        "outputs": []
+    }
+]

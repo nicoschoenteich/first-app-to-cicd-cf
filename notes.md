@@ -1,7 +1,6 @@
 # Vom ersten App-Deployment zu CI/CD mit Cloud Foundry
 
-Wie funktioniert Cloud Foundry eigentlich wirklich?
-In diesem Vortrag erkunden wir die Struktur von Apps und Services auf der SAP BTP, Cloud Foundry environment und lernen dabei, wie diese administriert werden können. Wir starten mit dem einfachen Deployment einer App, um dann Schritt für Schritt die Komplexität zu erhöhen und schlussendlich eine CI/CD Pipeline zu aufzusetzen. Geeignet für Entwickler/innen und technisch Interessierte.
+
 
 > From your first app deployment to CI/CD with Cloud Foundry
 >
@@ -9,8 +8,6 @@ In diesem Vortrag erkunden wir die Struktur von Apps und Services auf der SAP BT
 
 - starten mit Frage nach Erfahrung mit CF
   - wer hat schonmal eine App auf CF deployed?
-
-"You are two minutes away from understanding ..."
 
 ---
 
