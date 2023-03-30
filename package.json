@@ -1,9 +1,0 @@
-{
-    "name": "btpcon-cf",
-    "dependencies": {
-        "mbt": "latest"
-    },
-    "scripts": {
-        "build": "mbt build"
-    }
-}
