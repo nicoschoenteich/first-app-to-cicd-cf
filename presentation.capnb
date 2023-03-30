@@ -237,5 +237,16 @@
                 "value": "Wrote cell content to file <a href=\".pipeline/config.yml\">.pipeline/config.yml</a>.\n"
             }
         ]
+    },
+    {
+        "kind": 2,
+        "language": "terminal",
+        "value": "%%writefile \"package.json\"\n{\n    \"name\": \"btpcon-cf\",\n    \"dependencies\": {\n        \"mbt\": \"latest\"\n    },\n    \"scripts\": {\n        \"build\": \"mbt build\"\n    }\n}",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"package.json\">package.json</a>.\n"
+            }
+        ]
     }
 ]
