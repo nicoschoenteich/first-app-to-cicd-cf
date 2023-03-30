@@ -12,6 +12,7 @@ modules:
     build-parameters:
       builder: custom
       commands:
+        - npm install
         - npm run build
     requires:
       - name: btpcon-cf-html5-host
