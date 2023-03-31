@@ -69,7 +69,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "![SAP BTP Cockpit](images/btp-cockpit.png)\n![Webapp](images/static-webapp.png)",
+        "value": "![SAP BTP Cockpit](images/btp-static.png)\n![Webapp](images/static-webapp.png)",
         "outputs": []
     },
     {
@@ -81,7 +81,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "- CF is an open source application development platform as a service (PaaS)\n- It focuses on developer experience ➡️ developers can focus on developing solutions instead of how to run those solutions\n- \"Here is my code, just run it\"\n- Polyglot environment (running multiple programming languages)\n\nA ***simplified*** flow of how apps are staged:\n\n```text\n┌───────────────────────────────────────┐\n│              ┌─────────┐              │\n│              │ cf CLI  │              │\n│              └─────────┘              │\n│                                       │\n│  > command line tool for developers   │\n│                                       │\n└───────────────────────────────────────┘\n\n                   ⬇️\n\n┌───────────────────────────────────────┐\n│          ┌───────────────────┐        │\n│          │ Cloud Controller  │        │\n│          └───────────────────┘        │\n│                                       │\n│  > maintains database with            │\n│    orgs, spaces, services, roles, ... │\n│                                       │\n└───────────────────────────────────────┘\n\n                    ⬇️              \n\n┌───────────────────────────────────────┐\n│              ┌─────────┐              │\n│              │  Diego  │              │\n│              └─────────┘              │\n│                                       │\n│  > self-healing container management  │\n│    system                             │\n│                                       │\n└───────────────────────────────────────┘\n```\n\n1. cf CLI sends request to Cloud Controller\n1. Cloud Controller passes requests to run apps to the Diego\n1. Auctioneer (Diego) finds available Diego Cell\n1. Executor (Diego) creates Garden container in the Diego Cell\n1. Route is being created\n1. Logging",
+        "value": "- CF is an open source application development platform as a service (PaaS)\n- It focuses on developer experience ➡️ developers can focus on developing solutions instead of how to run those solutions\n- \"Here is my code, just run it\"\n- Polyglot environment (running multiple programming languages)\n\nA ***simplified*** flow of how apps are staged:\n\n```text\n┌───────────────────────────────────────┐\n│              ┌─────────┐              │\n│              │ cf CLI  │              │\n│              └─────────┘              │\n│                                       │\n│  > command line tool for developers   │\n│                                       │\n└───────────────────────────────────────┘\n\n                   ⬇️\n\n┌───────────────────────────────────────┐\n│          ┌───────────────────┐        │\n│          │ Cloud Controller  │        │\n│          └───────────────────┘        │\n│                                       │\n│  > maintains database with            │\n│    orgs, spaces, services, roles, ... │\n│                                       │\n└───────────────────────────────────────┘\n\n                   ⬇️              \n\n┌───────────────────────────────────────┐\n│              ┌─────────┐              │\n│              │  Diego  │              │\n│              └─────────┘              │\n│                                       │\n│  > self-healing container management  │\n│    system                             │\n│                                       │\n└───────────────────────────────────────┘\n```\n\n1. cf CLI sends request to Cloud Controller\n1. Cloud Controller passes requests to run apps to the Diego\n1. Auctioneer (Diego) finds available Diego Cell\n1. Executor (Diego) creates Garden container in the Diego Cell\n1. Route is being created\n1. Logging",
         "outputs": []
     },
     {
@@ -164,8 +164,13 @@
     {
         "kind": 2,
         "language": "terminal",
-        "value": "%%writefile \"mta.yaml\"\nID: btpcon-cf\n_schema-version: 3.2.0\nversion: 1.0.0\nparameters:\n  enable-parallel-deployments: true\nmodules:\n  - name: btpcon-cf-html5\n    type: nodejs\n    path: html5\n    parameters:\n      no-route: true\n      disk-quota: 256M\n      memory: 256M\n    build-parameters:\n      builder: custom\n      commands:\n        - npm run build\n    requires:\n      - name: btpcon-cf-html5-host\n  - name: btpcon-cf-approuter\n    type: nodejs\n    path: approuter\n    parameters:\n      disk-quota: 256M\n      memory: 256M\n    requires:\n      - name: btpcon-cf-html5-runtime\nresources:\n  - name: btpcon-cf-html5-host\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-host\n  - name: btpcon-cf-html5-runtime\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-runtime",
-        "outputs": []
+        "value": "%%writefile \"mta.yaml\"\nID: btpcon-cf\n_schema-version: 3.2.0\nversion: 1.0.0\nparameters:\n  enable-parallel-deployments: true\nmodules:\n  - name: btpcon-cf-html5\n    type: nodejs\n    path: html5\n    parameters:\n      no-route: true\n    build-parameters:\n      builder: custom\n      commands:\n        - npm install\n        - npm run build\n    requires:\n      - name: btpcon-cf-html5-host\n  - name: btpcon-cf-approuter\n    type: nodejs\n    path: approuter\n    parameters:\n      disk-quota: 256M\n      memory: 256M\n    requires:\n      - name: btpcon-cf-html5-runtime\n      - name: btpcon-cf-html5-destination\n      - name: btpcon-cf-html5-uaa\nresources:\n  - name: btpcon-cf-html5-host\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-host\n  - name: btpcon-cf-html5-runtime\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-runtime\n  - name: btpcon-cf-html5-destination\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service-plan: lite\n      service: destination\n      path: ./destinations.json\n  - name: btpcon-cf-html5-uaa\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: xsuaa\n      service-plan: application\n      path: xs-security.json",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"mta.yaml\">mta.yaml</a>.\n"
+            }
+        ]
     },
     {
         "kind": 2,
@@ -177,6 +182,12 @@
         "kind": 2,
         "language": "terminal",
         "value": "cf deploy mta_archives/btpcon-cf_1.0.0.mtar",
+        "outputs": []
+    },
+    {
+        "kind": 1,
+        "language": "markdown",
+        "value": "![SAP BTP Cockpit](images/btp-mta.png)\n![Webapp](images/mta-webapp.png)",
         "outputs": []
     },
     {
@@ -228,25 +239,9 @@
         "outputs": []
     },
     {
-        "kind": 2,
-        "language": "terminal",
-        "value": "%%writefile \".pipeline/config.yml\"\n---\ngeneral:\n  buildTool: \"mta\"\nservice:\n  buildToolVersion: \"MBTJ11N16\"\nstages:\n  Build:\n    npmExecuteLint: false\n  Additional Unit Tests:\n    npmExecuteScripts: false\n  Malware Scan:\n    malwareExecuteScan: true\n  Acceptance:\n    cloudFoundryDeploy: false\n    npmExecuteEndToEndTests: false\n  Compliance:\n    sonarExecuteScan: false\n  Release:\n    cloudFoundryDeploy: true\n    cfApiEndpoint: \"https://api.cf.us10-001.hana.ondemand.com\"\n    cfOrg: \"0b703415trial\"\n    cfSpace: \"dev\"\n    cfCredentialsId: \"nico-cf\"\n    deployType: \"standard\"\n    tmsUpload: false\nsteps:\n  artifactPrepareVersion:\n    versioningType: \"cloud_noTag\"\n  cloudFoundryDeploy:\n    mtaDeployParameters: \"-f --version-rule ALL\"",
-        "outputs": [
-            {
-                "mime": "text/html",
-                "value": "Wrote cell content to file <a href=\".pipeline/config.yml\">.pipeline/config.yml</a>.\n"
-            }
-        ]
-    },
-    {
-        "kind": 2,
-        "language": "terminal",
-        "value": "%%writefile \"package.json\"\n{\n    \"name\": \"btpcon-cf\",\n    \"dependencies\": {\n        \"mbt\": \"latest\"\n    },\n    \"scripts\": {\n        \"build\": \"mbt build\"\n    }\n}",
-        "outputs": [
-            {
-                "mime": "text/html",
-                "value": "Wrote cell content to file <a href=\"package.json\">package.json</a>.\n"
-            }
-        ]
+        "kind": 1,
+        "language": "markdown",
+        "value": "![CICD service on CF](images/cicd-service.png)\n\n```text\n┌───────────────────────────────────────┐\n│            ┌────────────┐             │\n│            │  git push  │             │\n│            └────────────┘             │\n│                                       │\n│  > developer pushes commit to git     │\n│                                       │\n└───────────────────────────────────────┘\n\n                   ⬇️\n\n┌───────────────────────────────────────┐\n│          ┌───────────────────┐        │\n│          │  GitHub Webhook   │        │\n│          └───────────────────┘        │\n│                                       │\n│  > gets triggered on git push         │\n│    (depending on config)              │\n│                                       │\n└───────────────────────────────────────┘\n\n                  POST\n                   ⬇️              \n\n┌───────────────────────────────────────┐\n│          ┌───────────────────┐        │\n│          │   CI/CD Service   │        │\n│          └───────────────────┘        │\n│                                       │\n│  > pulls repo, then builds, tests,    │\n│    and releases the project           │\n│                                       │\n└───────────────────────────────────────┘\n\n               deployment\n                   ⬇️               \n\n┌───────────────────────────────────────┐\n│            ┌────────────┐             │\n│            │  CF space  │             │\n│            └────────────┘             │\n│                                       │\n│  > app started and available          │\n│                                       │\n└───────────────────────────────────────┘\n```",
+        "outputs": []
     }
 ]
