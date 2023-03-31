@@ -2,7 +2,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    #banner-wrapper {\n      background: url(https://www.btpcon.org/wp-content/themes/exhibz/assets/images/banner/about-banner.jpg);\n      height: 200px;\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      padding: 1rem;\n    }\n    #banner-title {\n      font-size: 48px;\n      font-weight: 800;\n      color: #fff;\n    }\n    #banner-image {\n      height: 75%;\n      margin-bottom: 1rem;\n      margin-right: 2rem;\n    }\n  </style>\n</head>\n<body>\n\n  <div id=\"banner-wrapper\">\n    <span id=\"banner-title\">BTPcon 2023</span>\n    <img id=\"banner-image\" src=\"https://www.cloudfoundry.org/wp-content/uploads/2017/01/CloudFoundaryCorp_vertical_white.png\" />\n  </div>\n\n</body>\n</html>",
+        "value": "<html>\n<head>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>\n    #banner-wrapper {\n      background: url(https://www.btpcon.org/wp-content/themes/exhibz/assets/images/banner/about-banner.jpg);\n      height: 200px;\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      padding: 1rem;\n    }\n    #banner-title {\n      font-size: 48px;\n      font-weight: 800;\n      color: #fff;\n    }\n    #banner-image {\n      height: 60%;\n      margin-right: 2rem;\n    }\n  </style>\n</head>\n<body>\n\n  <div id=\"banner-wrapper\">\n    <span id=\"banner-title\">BTPcon 2023</span>\n    <img id=\"banner-image\" src=\"https://www.cloudfoundry.org/wp-content/uploads/2017/01/CloudFoundaryCorp_vertical_white.png\" />\n  </div>\n\n</body>\n</html>",
         "outputs": [
             {
                 "mime": "text/html",
@@ -35,15 +35,20 @@
         "outputs": [
             {
                 "mime": "text/html",
-                "value": "Wrote cell content to file <a href=\"my-first-app/index.html\">my-first-app/index.html</a>.\n"
+                "value": "Wrote cell content to file <a href=\"html5/index.html\">html5/index.html</a>.\n"
             }
         ]
     },
     {
         "kind": 2,
-        "language": "yaml",
+        "language": "terminal",
         "value": "%%writefile \"html5/manifest.yaml\"\n---\napplications:\n- name: btpcon-cf-static\n  random-route: true\n  path: .\n  memory: 256M\n  disk_quota: 256M\n  buildpacks:\n  - https://github.com/cloudfoundry/staticfile-buildpack",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/manifest.yaml\">html5/manifest.yaml</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -55,13 +60,23 @@
         "kind": 2,
         "language": "terminal",
         "value": "cf login -a https://api.cf.us10-001.hana.ondemand.com",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Running in terminal <b>presentation.capnb - /Users/i533499/github/nicoschoenteich/btpcon-cf7</b>"
+            }
+        ]
     },
     {
         "kind": 2,
         "language": "terminal",
         "value": "cd html5 && cf push",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Running in terminal <b>presentation.capnb - /Users/i533499/github/nicoschoenteich/btpcon-cf8</b>"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -121,7 +136,12 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"html5/package.json\"\n{\n    \"name\": \"btpcon-cf-html5\",\n    \"dependencies\": {\n        \"@sap/html5-app-deployer\": \"2.0.1\",\n        \"vanilla-data-binding\": \"latest\"\n    },\n    \"scripts\": {\n        \"start\": \"node node_modules/@sap/html5-app-deployer/index.js\",\n        \"dev\": \"vite\",\n        \"build\": \"vite build --outDir=resources/dist\"\n    },\n    \"devDependencies\": {\n        \"vite\": \"^4.2.1\"\n    }\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/package.json\">html5/package.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -133,7 +153,12 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"html5/public/manifest.json\"\n{\n\t\"_version\": \"1.12.0\",\n\t\"sap.app\": {\n\t\t\"id\": \"btpcon-cf-html5\",\n\t\t\"type\": \"application\",\n\t\t\"applicationVersion\": {\n\t\t\t\"version\": \"1.0.0\"\n\t\t}\n\t},\n\t\"sap.cloud\": {\n\t\t\"service\": \"basic.service\"\n\t}\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/public/manifest.json\">html5/public/manifest.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -145,7 +170,12 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"html5/public/xs-app.json\"\n{\n    \"welcomeFile\": \"/index.html\",\n    \"authenticationMethod\": \"route\",\n    \"routes\": [\n        {\n            \"source\": \"^(.*)$\",\n            \"target\": \"$1\",\n            \"service\": \"html5-apps-repo-rt\",\n            \"authenticationType\": \"none\"\n        }\n    ]\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/public/xs-app.json\">html5/public/xs-app.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -163,13 +193,23 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"approuter/package.json\"\n{\n\t\"name\": \"btpcon-cf-approuter\",\n\t\"dependencies\": {\n\t\t\"@sap/approuter\": \"latest\"\n\t},\n\t\"scripts\": {\n\t\t\"start\": \"node node_modules/@sap/approuter/approuter.js\"\n\t}\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"approuter/package.json\">approuter/package.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"approuter/xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"route\",\n\t\"routes\": [\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"approuter/xs-app.json\">approuter/xs-app.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -185,9 +225,14 @@
     },
     {
         "kind": 2,
-        "language": "yaml",
+        "language": "terminal",
         "value": "%%writefile \"mta.yaml\"\nID: btpcon-cf\n_schema-version: 3.2.0\nversion: 1.0.0\nparameters:\n  enable-parallel-deployments: true\nmodules:\n  - name: btpcon-cf-html5\n    type: nodejs\n    path: html5\n    parameters:\n      no-route: true\n    build-parameters:\n      builder: custom\n      commands:\n        - npm install\n        - npm run build\n    requires:\n      - name: btpcon-cf-html5-host\n  - name: btpcon-cf-approuter\n    type: nodejs\n    path: approuter\n    parameters:\n      disk-quota: 256M\n      memory: 256M\n    requires:\n      - name: btpcon-cf-html5-runtime\nresources:\n  - name: btpcon-cf-html5-host\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-host\n  - name: btpcon-cf-html5-runtime\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-runtime",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"mta.yaml\">mta.yaml</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -199,13 +244,23 @@
         "kind": 2,
         "language": "terminal",
         "value": "mbt build",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Running in terminal <b>presentation.capnb - /Users/i533499/github/nicoschoenteich/btpcon-cf31</b>"
+            }
+        ]
     },
     {
         "kind": 2,
         "language": "terminal",
         "value": "cf deploy mta_archives/btpcon-cf_1.0.0.mtar",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Running in terminal <b>presentation.capnb - /Users/i533499/github/nicoschoenteich/btpcon-cf32</b>"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -228,32 +283,48 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "We add instances of the `xsuaa` and the `destination` service, create their respective configuration files, and make sure the approuter requires the instances (> application binding).",
+        "value": "We add instances of the `destination` and the `xsuaa` service, create their respective configuration files, and make sure the approuter requires the instances (> application binding).",
         "outputs": []
     },
     {
         "kind": 2,
-        "language": "yaml",
+        "language": "terminal",
         "value": "%%writefile \"mta.yaml\"\nID: btpcon-cf\n_schema-version: 3.2.0\nversion: 1.0.0\nparameters:\n  enable-parallel-deployments: true\nmodules:\n  - name: btpcon-cf-html5\n    type: nodejs\n    path: html5\n    parameters:\n      no-route: true\n    build-parameters:\n      builder: custom\n      commands:\n        - npm install\n        - npm run build\n    requires:\n      - name: btpcon-cf-html5-host\n  - name: btpcon-cf-approuter\n    type: nodejs\n    path: approuter\n    parameters:\n      disk-quota: 256M\n      memory: 256M\n    requires:\n      - name: btpcon-cf-html5-runtime\n      - name: btpcon-cf-html5-destination\n      - name: btpcon-cf-html5-uaa\nresources:\n  - name: btpcon-cf-html5-host\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-host\n  - name: btpcon-cf-html5-runtime\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-runtime\n  - name: btpcon-cf-html5-destination\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service-plan: lite\n      service: destination\n      path: ./destinations.json\n  - name: btpcon-cf-html5-uaa\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: xsuaa\n      service-plan: application\n      path: xs-security.json",
         "outputs": []
     },
     {
         "kind": 1,
         "language": "markdown",
-        "value": " `github-api` will allow us to ",
+        "value": "The `github-api` destination will allow the approuter to call `https://api.github.com` on a client's behalf, which will avoid [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) issues. This configuration file will get picked up during the MTA build.",
         "outputs": []
     },
     {
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"destinations.json\"\n{\n\t\"init_data\": {\n\t\t\"instance\": {\n\t\t\t\"existing_destinations_policy\": \"update\",\n\t\t\t\"destinations\": [\n\t\t\t\t{\n\t\t\t\t\t\"Name\": \"github-api\",\n\t\t\t\t\t\"Authentication\": \"NoAuthentication\",\n\t\t\t\t\t\"ProxyType\": \"Internet\",\n\t\t\t\t\t\"Type\": \"HTTP\",\n\t\t\t\t\t\"URL\": \"https://api.github.com\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}",
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"destinations.json\">destinations.json</a>.\n"
+            }
+        ]
+    },
+    {
+        "kind": 1,
+        "language": "markdown",
+        "value": "The `oauth2-configuration` is required to whitelist our approuter's URL in the xsuaa tenant.",
         "outputs": []
     },
     {
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"xs-security.json\"\n{\n    \"xsappname\": \"btpcon-cf-uaa\",\n    \"tenant-mode\": \"dedicated\",\n    \"oauth2-configuration\": {\n        \"redirect-uris\": [\n            \"https://*btpcon-cf-approuter.cfapps.us10-001.hana.ondemand.com/login/callback\"\n        ]\n    }\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"xs-security.json\">xs-security.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -265,7 +336,12 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"route\",\n\t\"routes\": [\n\t\t{\n\t\t\t\"source\": \"^/user-api(.*)\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"service\": \"sap-approuter-userapi\"\n\t\t},\n\t\t{\n\t\t\t\"source\": \"^.*/github-api/(.*)$\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"authenticationType\": \"none\",\n\t\t\t\"destination\": \"github-api\"\n\t\t},\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"xs-app.json\">xs-app.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -277,7 +353,12 @@
         "kind": 2,
         "language": "json",
         "value": "%%writefile \"html5/public/xs-app.json\"\n{\n    \"welcomeFile\": \"/index.html\",\n    \"authenticationMethod\": \"route\",\n    \"routes\": [\n        {\n            \"source\": \"^(.*)$\",\n            \"target\": \"$1\",\n            \"service\": \"html5-apps-repo-rt\",\n            \"authenticationType\": \"xsuaa\"\n        }\n    ]\n}",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/public/xs-app.json\">html5/public/xs-app.json</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -289,7 +370,12 @@
         "kind": 2,
         "language": "html",
         "value": "%%writefile \"html5/index.html\"\n<h1>Hello BTPcon!</h1>\n\n<p>Why not check out one of these SAP CodeJam repositories?</p>\n\n<ul class=\"bind-list\" data-bind=\"repos>repos\">\n    <li>\n        <a class=\"bind-prop\" data-bind=\"repos>html_url\"></a>\n    </li>\n</ul>\n\n<script type=\"module\">\n    import { createModel } from \"vanilla-data-binding\"\n\n    const main = async () => {\n        const response = await fetch(\"/github-api/orgs/SAP-Samples/repos?sort=updated&per_page=100\")\n        const result = await response.json()\n        const repos = result.filter(repo => repo.name.includes(\"codejam\"))\n        createModel(\"repos\", { \"repos\": repos })\n    }\n    main()\n    const user = async () => {\n        const response = await fetch(\"/user-api/currentUser\")\n        const result = await response.json()\n        document.getElementsByTagName(\"h1\")[0].textContent = `Hello ${result.firstname}!`\n    }\n    user()\n</script>",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"html5/index.html\">html5/index.html</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
