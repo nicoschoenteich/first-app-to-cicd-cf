@@ -1,9 +1,0 @@
-{
-    "xsappname": "btpcon-cf-uaa",
-    "tenant-mode": "dedicated",
-    "oauth2-configuration": {
-        "redirect-uris": [
-            "https://*btpcon-cf-approuter.cfapps.us10-001.hana.ondemand.com/login/callback"
-        ]
-    }
-}

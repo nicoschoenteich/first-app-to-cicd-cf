@@ -290,7 +290,12 @@
         "kind": 2,
         "language": "terminal",
         "value": "%%writefile \"mta.yaml\"\nID: btpcon-cf\n_schema-version: 3.2.0\nversion: 1.0.0\nparameters:\n  enable-parallel-deployments: true\nmodules:\n  - name: btpcon-cf-html5\n    type: nodejs\n    path: html5\n    parameters:\n      no-route: true\n    build-parameters:\n      builder: custom\n      commands:\n        - npm install\n        - npm run build\n    requires:\n      - name: btpcon-cf-html5-host\n  - name: btpcon-cf-approuter\n    type: nodejs\n    path: approuter\n    parameters:\n      disk-quota: 256M\n      memory: 256M\n    requires:\n      - name: btpcon-cf-html5-runtime\n      - name: btpcon-cf-html5-destination\n      - name: btpcon-cf-html5-uaa\nresources:\n  - name: btpcon-cf-html5-host\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-host\n  - name: btpcon-cf-html5-runtime\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: html5-apps-repo\n      service-plan: app-runtime\n  - name: btpcon-cf-html5-destination\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service-plan: lite\n      service: destination\n      path: ./destinations.json\n  - name: btpcon-cf-html5-uaa\n    type: org.cloudfoundry.managed-service\n    parameters:\n      service: xsuaa\n      service-plan: application\n      path: xs-security.json",
-        "outputs": []
+        "outputs": [
+            {
+                "mime": "text/html",
+                "value": "Wrote cell content to file <a href=\"mta.yaml\">mta.yaml</a>.\n"
+            }
+        ]
     },
     {
         "kind": 1,
@@ -329,17 +334,17 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "We add the `user-api` route to fetch information about the logged in user (provided by the approuter), add a route to call the `github-api` and \"turn on\" security by setting `route` as `authenticationMethod`, which will check for `authenticationType`s of individual routes.",
+        "value": "We add the `user-api` route to fetch information about the logged in user (provided by the approuter), and add a route to call the `github-api` and \"turn on\" security by setting `route` as `authenticationMethod`, which will check for `authenticationType`s of individual routes.",
         "outputs": []
     },
     {
         "kind": 2,
         "language": "json",
-        "value": "%%writefile \"xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"route\",\n\t\"routes\": [\n\t\t{\n\t\t\t\"source\": \"^/user-api(.*)\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"service\": \"sap-approuter-userapi\"\n\t\t},\n\t\t{\n\t\t\t\"source\": \"^.*/github-api/(.*)$\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"authenticationType\": \"none\",\n\t\t\t\"destination\": \"github-api\"\n\t\t},\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
+        "value": "%%writefile \"approuter/xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"route\",\n\t\"routes\": [\n\t\t{\n\t\t\t\"source\": \"^/user-api(.*)\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"service\": \"sap-approuter-userapi\"\n\t\t},\n\t\t{\n\t\t\t\"source\": \"^.*/github-api/(.*)$\",\n\t\t\t\"target\": \"$1\",\n\t\t\t\"authenticationType\": \"none\",\n\t\t\t\"destination\": \"github-api\"\n\t\t},\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
         "outputs": [
             {
                 "mime": "text/html",
-                "value": "Wrote cell content to file <a href=\"xs-app.json\">xs-app.json</a>.\n"
+                "value": "Wrote cell content to file <a href=\"approuter/xs-app.json\">approuter/xs-app.json</a>.\n"
             }
         ]
     },
