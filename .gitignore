@@ -1,3 +1,5 @@
 mta_archives/
-node_modules/
 resources/
+
+**/node_modules/*
+!**/node_modules/vanilla-data-binding
