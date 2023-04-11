@@ -2,20 +2,23 @@
 
 <p>Why not check out one of these SAP CodeJam repositories?</p>
 
-<ul class="bind-list" data-bind="repos>repos">
-    <li>
-        <a class="bind-prop" data-bind="repos>html_url"></a>
-    </li>
-</ul>
+<ul id="myList"></ul>
 
 <script type="module">
-    import { createModel } from "vanilla-data-binding"
 
     const main = async () => {
         const response = await fetch("/github-api/orgs/SAP-Samples/repos?sort=updated&per_page=100")
         const result = await response.json()
         const repos = result.filter(repo => repo.name.includes("codejam"))
-        createModel("repos", { "repos": repos })
+        const myList = document.getElementById("myList")
+        for (let i = 0; i < repos.length; i++) {
+            const newListItem = document.createElement("li")
+            const newLink = document.createElement("a")
+            newLink.textContent = repos[i].html_url
+            newLink.href = repos[i].html_url
+            newListItem.appendChild(newLink)
+            myList.appendChild(myListItem)
+        }
     }
     main()
     const user = async () => {
