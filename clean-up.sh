@@ -1,0 +1,1 @@
+rm -r approuter html5 mta_archives mta.yaml destinations.json xs-security.json

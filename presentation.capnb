@@ -283,7 +283,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "We add instances of the `destination` and the `xsuaa` service, create their respective configuration files, and make sure the approuter requires the instances (> application binding).",
+        "value": "We add instances of the `destination` and the `xsuaa` service, create their respective configuration files, and make sure the approuter requires the instances (➡️ application binding).",
         "outputs": []
     },
     {
