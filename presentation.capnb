@@ -105,7 +105,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "From an application developer perspective, there are two similar (but also very different) concepts you need to understand to build solutions in Cloud Foundry - apps and services.\n\n### Apps\n\n- Are deployed into a Cloud Foundry space\n- Consume Cloud Foundry Runtime ($$$)\n- Can be scaled vertically and horizontally\n- Many different programming languages possible (polyglot environment)\n- Multi-tenancy is possible, which allows to expose them via the Cloud Foundry Marketplace so they can be subscribed to by other subaccounts\n\n### Services\n\n- Services are also available via the Cloud Foundry Marketplace\n- Most commonly used: Destination Service, Authorization and Trust Management Service, ...\n- To use a service means to create an instance of a service\n- Service instances also live in a Cloud Foundry space\n- Don't consume Cloud Foundry Runtime ($$$)\n\n### Application Bindings\n\n- An app can be bound to a service instance by storing the service instance credentials in the app's environment variables (`{ \"VCAP_SERVICES\": {...} }`), which Cloud Foundry can automatically do for you",
+        "value": "From an application developer perspective, there are two similar (but also very different) concepts you need to understand to build solutions in Cloud Foundry - apps and services.\n\n### Apps\n\n- Are deployed into a Cloud Foundry space\n- Consume Cloud Foundry Runtime ($$$)\n- Can be scaled vertically and horizontally\n- Many different programming languages possible (polyglot environment)\n- Multi-tenancy is possible, which allows to expose them via the Cloud Foundry Marketplace so they can be subscribed to by other subaccounts\n\n### Services\n\n- Services are also available via the Cloud Foundry Marketplace\n- Most commonly used: Destination Service, Authorization and Trust Management Service, ...\n- To use a service means to create an instance of a service\n- Service instances also live in a Cloud Foundry space\n- Don't consume Cloud Foundry Runtime ($$$)\n- Different services plans come with different price points\n\n### Application Bindings\n\n- An app can be bound to a service instance by storing the service instance credentials in the app's environment variables (`{ \"VCAP_SERVICES\": {...} }`), which Cloud Foundry can automatically do for you",
         "outputs": []
     },
     {
@@ -169,7 +169,7 @@
     {
         "kind": 2,
         "language": "json",
-        "value": "%%writefile \"html5/public/xs-app.json\"\n{\n    \"welcomeFile\": \"/index.html\",\n    \"authenticationMethod\": \"route\",\n    \"routes\": [\n        {\n            \"source\": \"^(.*)$\",\n            \"target\": \"$1\",\n            \"service\": \"html5-apps-repo-rt\",\n            \"authenticationType\": \"none\"\n        }\n    ]\n}",
+        "value": "%%writefile \"html5/public/xs-app.json\"\n{\n    \"welcomeFile\": \"/index.html\",\n    \"authenticationMethod\": \"none\",\n    \"routes\": [\n        {\n            \"source\": \"^(.*)$\",\n            \"target\": \"$1\",\n            \"service\": \"html5-apps-repo-rt\",\n            \"authenticationType\": \"none\"\n        }\n    ]\n}",
         "outputs": [
             {
                 "mime": "text/html",
@@ -203,7 +203,7 @@
     {
         "kind": 2,
         "language": "json",
-        "value": "%%writefile \"approuter/xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"route\",\n\t\"routes\": [\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
+        "value": "%%writefile \"approuter/xs-app.json\"\n{\n\t\"welcomeFile\": \"index.html\",\n\t\"authenticationMethod\": \"none\",\n\t\"routes\": [\n\t\t{\n            \"source\": \"^(.*)$\",\n            \"target\": \"/btpconcfhtml5/$1\",\n            \"service\": \"html5-apps-repo-rt\"\n        }\n\t]\n}",
         "outputs": [
             {
                 "mime": "text/html",

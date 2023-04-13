@@ -24,6 +24,8 @@ modules:
       memory: 256M
     requires:
       - name: btpcon-cf-html5-runtime
+      - name: btpcon-cf-html5-destination
+      - name: btpcon-cf-html5-uaa
 resources:
   - name: btpcon-cf-html5-host
     type: org.cloudfoundry.managed-service
@@ -35,3 +37,15 @@ resources:
     parameters:
       service: html5-apps-repo
       service-plan: app-runtime
+  - name: btpcon-cf-html5-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      path: ./destinations.json
+  - name: btpcon-cf-html5-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: xs-security.json
