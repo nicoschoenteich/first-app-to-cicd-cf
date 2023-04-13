@@ -135,7 +135,7 @@
     {
         "kind": 2,
         "language": "json",
-        "value": "%%writefile \"html5/package.json\"\n{\n    \"name\": \"btpcon-cf-html5\",\n    \"dependencies\": {\n        \"@sap/html5-app-deployer\": \"2.0.1\",\n        \"vanilla-data-binding\": \"latest\"\n    },\n    \"scripts\": {\n        \"start\": \"node node_modules/@sap/html5-app-deployer/index.js\",\n        \"dev\": \"vite\",\n        \"build\": \"vite build --outDir=resources/dist\"\n    },\n    \"devDependencies\": {\n        \"vite\": \"^4.2.1\"\n    }\n}",
+        "value": "%%writefile \"html5/package.json\"\n{\n    \"name\": \"btpcon-cf-html5\",\n    \"dependencies\": {\n        \"@sap/html5-app-deployer\": \"2.0.1\"\n    },\n    \"scripts\": {\n        \"start\": \"node node_modules/@sap/html5-app-deployer/index.js\",\n        \"dev\": \"vite\",\n        \"build\": \"vite build --outDir=resources/dist\"\n    },\n    \"devDependencies\": {\n        \"vite\": \"^4.2.1\"\n    }\n}",
         "outputs": [
             {
                 "mime": "text/html",
@@ -374,7 +374,7 @@
     {
         "kind": 2,
         "language": "html",
-        "value": "%%writefile \"html5/index.html\"\n<h1>Hello BTPcon!</h1>\n\n<p>Why not check out one of these SAP CodeJam repositories?</p>\n\n<ul class=\"bind-list\" data-bind=\"repos>repos\">\n    <li>\n        <a class=\"bind-prop\" data-bind=\"repos>html_url\"></a>\n    </li>\n</ul>\n\n<script type=\"module\">\n    import { createModel } from \"vanilla-data-binding\"\n\n    const main = async () => {\n        const response = await fetch(\"/github-api/orgs/SAP-Samples/repos?sort=updated&per_page=100\")\n        const result = await response.json()\n        const repos = result.filter(repo => repo.name.includes(\"codejam\"))\n        createModel(\"repos\", { \"repos\": repos })\n    }\n    main()\n    const user = async () => {\n        const response = await fetch(\"/user-api/currentUser\")\n        const result = await response.json()\n        document.getElementsByTagName(\"h1\")[0].textContent = `Hello ${result.firstname}!`\n    }\n    user()\n</script>",
+        "value": "%%writefile \"html5/index.html\"\n<h1>Hello BTPcon!</h1>\n\n<p>Why not check out one of these SAP CodeJam repositories?</p>\n\n<ul id=\"myList\"></ul>\n\n<script type=\"module\">\n\n    const main = async () => {\n        const response = await fetch(\"/github-api/orgs/SAP-Samples/repos?sort=updated&per_page=100\")\n        const result = await response.json()\n        const repos = result.filter(repo => repo.name.includes(\"codejam\"))\n        const myList = document.getElementById(\"myList\")\n        for (let i = 0; i < repos.length; i++) {\n            const newListItem = document.createElement(\"li\")\n            const newLink = document.createElement(\"a\")\n            newLink.textContent = repos[i].html_url\n            newLink.href = repos[i].html_url\n            newListItem.appendChild(newLink)\n            myList.appendChild(newListItem)\n        }\n    }\n    main()\n    const user = async () => {\n        const response = await fetch(\"/user-api/currentUser\")\n        const result = await response.json()\n        document.getElementsByTagName(\"h1\")[0].textContent = `Hello ${result.firstname}!`\n    }\n    user()\n</script>",
         "outputs": [
             {
                 "mime": "text/html",
