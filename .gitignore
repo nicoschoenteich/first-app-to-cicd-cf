@@ -2,3 +2,5 @@ mta_archives/
 node_modules/
 resources/
 .DS_Store
+
+notes.md
