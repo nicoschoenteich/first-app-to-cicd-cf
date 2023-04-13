@@ -1,0 +1,37 @@
+ID: btpcon-cf
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: btpcon-cf-html5
+    type: nodejs
+    path: html5
+    parameters:
+      no-route: true
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+    requires:
+      - name: btpcon-cf-html5-host
+  - name: btpcon-cf-approuter
+    type: nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: btpcon-cf-html5-runtime
+resources:
+  - name: btpcon-cf-html5-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: btpcon-cf-html5-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
