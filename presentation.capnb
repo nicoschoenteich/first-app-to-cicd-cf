@@ -117,7 +117,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "Multi-Target applications make it possible to describe more complex solution, including multiple apps and services instances, with a single file (`mta.yaml`) and deploy them with a single command (`cf deploy`).\n\n➡️ More about `mta.yaml` vs. `manifest.yaml` based deployments in this [YouTube video](https://www.youtube.com/watch?v=kt7XW6n_3xY).\n\nLet's build an app with the following architecture:\n\n![MTA architecture](images/architecture.png)",
+        "value": "Multi-Target applications make it possible to describe more complex solutions, including multiple apps and services instances, with a single file (`mta.yaml`) and deploy them with a single command (`cf deploy`).\n\n➡️ More about `mta.yaml` vs. `manifest.yaml` based deployments in this [YouTube video](https://www.youtube.com/watch?v=kt7XW6n_3xY).\n\nLet's build an app with the following architecture:\n\n![MTA architecture](images/architecture.png)",
         "outputs": []
     },
     {
@@ -146,7 +146,7 @@
     {
         "kind": 1,
         "language": "markdown",
-        "value": "Every app deployed into the html5-apps-repo need a `manifest.json`. We create it in `public/` so that `vite` includes it in the build.",
+        "value": "Every app deployed into the html5-apps-repo needs a `manifest.json`. We create it in `public/` so that `vite` includes it in the build.",
         "outputs": []
     },
     {
