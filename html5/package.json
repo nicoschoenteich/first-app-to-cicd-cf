@@ -1,0 +1,14 @@
+{
+    "name": "sitr-cf-html5",
+    "dependencies": {
+        "@sap/html5-app-deployer": "2.0.1"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/html5-app-deployer/index.js",
+        "dev": "vite",
+        "build": "vite build --outDir=resources/dist"
+    },
+    "devDependencies": {
+        "vite": "^4.2.1"
+    }
+}

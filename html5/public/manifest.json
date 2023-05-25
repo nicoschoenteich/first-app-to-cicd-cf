@@ -1,0 +1,13 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "sitr-cf-html5",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.cloud": {
+		"service": "basic.service"
+	}
+}
