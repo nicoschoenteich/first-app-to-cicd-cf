@@ -1,18 +1,7 @@
 {
 	"welcomeFile": "index.html",
-	"authenticationMethod": "route",
+	"authenticationMethod": "none",
 	"routes": [
-		{
-			"source": "^/user-api(.*)",
-			"target": "$1",
-			"service": "sap-approuter-userapi"
-		},
-		{
-			"source": "^.*/github-api/(.*)$",
-			"target": "$1",
-			"authenticationType": "none",
-			"destination": "github-api"
-		},
 		{
             "source": "^(.*)$",
             "target": "/sitrcfhtml5/$1",

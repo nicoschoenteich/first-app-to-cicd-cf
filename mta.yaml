@@ -24,8 +24,6 @@ modules:
       memory: 256M
     requires:
       - name: sitr-cf-html5-runtime
-      - name: sitr-cf-html5-destination
-      - name: sitr-cf-html5-uaa
 resources:
   - name: sitr-cf-html5-host
     type: org.cloudfoundry.managed-service
@@ -37,15 +35,3 @@ resources:
     parameters:
       service: html5-apps-repo
       service-plan: app-runtime
-  - name: sitr-cf-html5-destination
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service-plan: lite
-      service: destination
-      path: ./destinations.json
-  - name: sitr-cf-html5-uaa
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      path: xs-security.json

@@ -1,9 +1,0 @@
-{
-    "xsappname": "sitr-cf-uaa",
-    "tenant-mode": "dedicated",
-    "oauth2-configuration": {
-        "redirect-uris": [
-            "https://*sitr-cf-approuter.cfapps.us10-001.hana.ondemand.com/login/callback"
-        ]
-    }
-}
